@@ -8,20 +8,20 @@
 返回：”Hello%20%20World”
 */
 public void replace(String str){
-	if(str == null || str.length == 0){
+	char[] chs = str.toCharArray();
+	if(chs == null || chs.length == 0){
 		return;
 	}
 	int num = 0;
-	char[] chs = str.toCharArray();
-	for(int i = 0; i < str.length; i++){
+	for(int i = 0; i < chs.length && chs[i] != '\0'; i++){    //'\0'代表空白，其ASCII是0
 		if(chs[i] == ' '){
 			num++;
 		}
 	}
-	ing j = str.length + 2 * num - 1;
+	ing j = chs.length + 2 * num - 1;
 	
-	for(int i = str.length - 1; i > -1; i--){
-		if(chs[i] != " "){
+	for(int i = chs.length - 1; i > -1; i--){
+		if(chs[i] != ' '){
 			chs[j--] = chs[i];
 		}else{
 			chs[j--] = '0';
