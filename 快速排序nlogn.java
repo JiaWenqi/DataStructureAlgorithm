@@ -23,11 +23,11 @@ public void quickSort(int[] arr){
 //随机找一个数，然后与最后一个数位置交换，然后进行排序，排序完可以找到这个随机数的位置，然后根据这个位置分割成两部分再进行递归分治排序。
 public void process(int[] arr, int left, int right){
 	if(left < right){
-		int random = Math.random() * (right - left + 1);
+		int random = left + (int) Math.random() * (right - left + 1);
 		swap(arr, random, right);
 		mid = partition(arr, left, right);
-		process(arr, 0, mid);
-		process(arr, mid+1, right);		
+		process(arr, left, mid - 1);
+		process(arr, mid + 1, right);		
 	}
 }
 //定义一个假想的左小区间，起始位置是left-1,将左小区间外的下一个数与最右边的数比较，若小，则将左小区间右端数与区间外下一个数交换
